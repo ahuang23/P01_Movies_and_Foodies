@@ -17,9 +17,10 @@
 }
 .section {
     text-align: center;
+    display: inline-block;
 }
 .section2 {
     text-align: center;
-   
+   display: inline-block;
 
 }
