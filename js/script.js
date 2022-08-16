@@ -1,4 +1,10 @@
-var tmdbURL = "https://api.themoviedb.org/3/movie/550?api_key=eea5a34dde91516aaed29972492b8943"
+
+
+function movieCall(){
+  var genre="";
+  // var tmdbURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=eea5a34dde91516aaed29972492b8943"; 
+  var tmdbURL = "https://api.themoviedb.org/3/genre/movie/discover?api_key=eea5a34dde91516aaed29972492b8943";
+
 
 fetch(tmdbURL, {
 })
@@ -9,5 +15,11 @@ fetch(tmdbURL, {
     console.log(data);
   });
 
-//   test 
-// test
+
+
+
+
+
+}
+
+movieCall();
