@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+
+}
+
+.header { font-family: Helvetica, Arial, sans-serif;
+    font-size:25px; ;
+      color: #000000;
+      text-align: center;
+      background-color: teal;
+      border: 3px solid black;
+      margin: 0em;                                   ;
+      padding:2em;
+
+}
+.section {
+    text-align: center;
+}
+.section2 {
+    text-align: center;
+   
+
+}
