@@ -18,9 +18,12 @@
 .section {
     text-align: center;
     display: inline-block;
+    padding-left: 100px;
+    
 }
 .section2 {
     text-align: center;
-   display: inline-block;
-
+    display: inline-block;
+    padding-right: px;
+    
 }
