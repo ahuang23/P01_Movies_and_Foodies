@@ -41,24 +41,42 @@
     .flex-container2{
         display: flex;
         flex-wrap: wrap;
-
+        
+        padding-left:25em;
+        flex:50%;
   }
 
   .button {
-    flex:50%;
     
-    /* background-color: black;
-    color:white; */
+    text-align: center;
+   display:inline-block; 
+   
+   
+    
+   
  } 
 
 @media screen and (max-width: 992px) {
-    .flex-container {
+    .flex-container, .flex-container2 {
       width: 100%;
     }
   }
 
   @media screen and (max-width: 600px) {
-    .flex-container {
+    .flex-container, .flex-container2 {
+      flex-direction: column;  
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+     .flex-container2 {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .flex-container2 {
       flex-direction: column;  
       width: 50%;
     }
