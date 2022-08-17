@@ -37,13 +37,19 @@
     padding-top:48px;
   
 }
-.button {
-    display: inline-block;
-    background-color: black;
-    color:white;
 
-    
+    .flex-container2{
+        display: flex;
+        flex-wrap: wrap;
+
   }
+
+  .button {
+    flex:50%;
+    
+    /* background-color: black;
+    color:white; */
+ } 
 
 @media screen and (max-width: 992px) {
     .flex-container {
