@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Movies & Foodies</title>
     <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/mystyles.scss">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   </head>
   <body>
@@ -18,25 +19,12 @@
       <div class="select">
         
         <select>
-          <option selected>Movie Genre</option>
-          <option>Action</option>
-          <option>Adventure</option>
-          <option>Animation</option>
-          <option>Comedy</option>
-          <option>Crime</option>
-          <option>Documentary</option>
-          <option>Family</option>
-          <option>Fantasy</option>
-          <option>History</option>
-          <option>Horror</option>
-          <option>Music</option>
-          <option>Mystery</option>
-          <option>Romance</option>
-          <option>Science Fiction</option>
-          <option>TV Movie</option>
-          <option>Thriller</option>
-          <option>War</option>
-          <option>Western</option>
+          <option> Movie Genre</option>
+          <option id="Action">Action</option>
+          <option id="Comedy">Comedy</option>
+          <option id="Horror">Horror</option>
+          <option id="Mystery">Mystery</option>
+          <option id="Romance">Romance</option>
         </select>
       </div>
       <span class="icon is-left">
@@ -49,7 +37,7 @@
       <div class="select">
         
         <select>
-          <option selected>Snacks</option>
+          <option id="selected">Snacks</option>
           <option>Select dropdown</option>
           <option>With options</option>
         </select>
@@ -59,9 +47,14 @@
       </span>
     </div>
   </div>
-  <button class="button">Reset</button>
+ <section class="flex-container2">
+  <button class="button is-medium is-rounded is full width">Submit</button>
+ 
 </section>
+<footer class="flex-container2">
+  <button class="button is-medium is-rounded is full width">Reset</button>  
+</footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="./js/script.js"></script>
+  <script src="./assets/storage.js"></script>
 </body>
 </html>
