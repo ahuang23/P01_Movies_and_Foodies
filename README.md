@@ -1,9 +1,9 @@
 # P01_Movies_and_Foodies
 
 ## Team 5 Loop
-- Alan Huang (Movies Feature - Javascript)
-- Steven Danielewicz (Foodies Feature - Javascript)
-- Anthony Martinez (Front End - HTML + CSS)
+- Alan Huang 
+- Steven Danielewicz 
+- Anthony Martinez s
 
 ## Description
 - Our app’s functionality is to take the guesswork out of movie night. Our goal is to pair a randomly selected movie with a movie snack based on user inputs.
