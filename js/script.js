@@ -79,7 +79,8 @@ fetch(yelpURL, {
       section2.empty();
       var pickImg = new Image();
       pickImg.src = imgURL
-      pickImg.height = 400;
+      pickImg.style = "height: 400px";
+
 
       var phoneFormat = address.phone.slice(-10);
       
