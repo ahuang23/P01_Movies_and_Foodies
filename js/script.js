@@ -1,4 +1,4 @@
-var submit = $("#submit");
+var submit = $(".submit");
 var reset = $(".reset");
 var section = $(".section");
 var section2 = $(".section2");
