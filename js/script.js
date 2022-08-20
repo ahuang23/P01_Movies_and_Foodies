@@ -2,6 +2,8 @@ var submit = $(".submit");
 var reset = $(".reset");
 var section = $(".section");
 var section2 = $(".section2");
+var modal = $("#errorModal");
+var closeit = $("#closeModal");
 var movieSelection;
 var input;
 var price;
@@ -15,9 +17,15 @@ var selecedPrice = $("#select2").on("change", function(){
 });
 
 submit.click(function(){
+  inputCatch();
   yelpCall();  
   movieCall();
- })
+ });
+
+closeit.click(function(){
+  $(modal).removeClass("is-active");
+}); 
+
 reset.click(function(){
   location.reload();
 })
@@ -164,4 +172,11 @@ function movieCall(){
   var newMovie = JSON.stringify(movieInfo);
   localStorage.setItem("movieInfo", newMovie);
   });
+}
+
+function inputCatch(){
+  if (input == undefined){
+    $(modal).addClass("is-active");
+  }
+  return;
 }
