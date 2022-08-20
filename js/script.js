@@ -1,22 +1,21 @@
-var input = "Action";
-function movieCall(){
-  var genre="";
+var submit = $(".submit");
+var reset = $(".reset");
+var section = $(".section");
+var movieSelection;
+var input;
+var selectedNew = $("#select1").on("change", function(){
+  input = this.value;
+});
+submit.click(function(){
+    movieCall();
+    yelpCall();
+ })
+reset.click(function(){
+  location.reload();
+})
 
-
-
-
-
-
-}
 
 function yelpCall(input){
-  
- 
-  // const yelpHead = new Headers();
-  // yelpHead.append({'Authorization:', 'Bearer SPNMpxXoVwWFRBSY8zqfCfCXLxqvHJ9XMZsyQW9uMP5mp7tQR-QMp3CVmg46fQIdTdZy78oZV6FThsPFPIHJ8azQxoe4jieedC7V_M5BEfZnctm4npIJ33W7oBf7YnYx'});
-
-//var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/categories";
-
 
 var food = {
   "Action" : "fast food",
@@ -27,8 +26,6 @@ var food = {
 }
 var cuisine;
  
-
-
 for (var prop in food){
   var rand = Math.floor(Math.random() * 3);
  if ((prop === input) && (prop === "Mystery")){
@@ -47,13 +44,7 @@ console.log(cuisine);
 
 var randRest = Math.floor(Math.random() * 20);
 
-
-
-
-
 var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term="+cuisine+"&latitude=33.787914&longitude=-117.853104";
-
-
 
   fetch(yelpURL, {
     method: 'GET',
@@ -80,46 +71,28 @@ var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/busin
 }
 
 
-      // var iconForNow = new Image(getForIcon);
-      // iconForNow.src = "https://openweathermap.org/img/wn/" + getForIcon + "@2x.png";
-      // iconForNow.width = 100;
-
-
-
-movieCall();
-yelpCall(input);
-
-
-var searchBtn = $(".searchBtn");
-var selected = $("#select1").on("change", function(){
-  console.log(this.value);
-});
-var input = selected.val();
-console.log(input);
-// var input = "Romance"; // Connect with html class
-
-// searchBtn.click(movieCall());
-
-
 function movieCall(){
-  if (input = "Action") {
+  if (input === "Movie Genre") {
+    return;
+  }
+  else if (input === "Action") {
   movieSelection = 28;
   }
-  else if (input == "Comedy") {
+  else if (input === "Comedy") {
   movieSelection = 35;
   }
-  else if (input == "Horror") {
+  else if (input === "Horror") {
   movieSelection = 27;
   }
-  else if (input == "Mystery") {
+  else if (input === "Mystery") {
   movieSelection = 9648;
   }
-  else if (input == "Romance") {
+  else if (input === "Romance") {
   movieSelection = 10749;
-  }
-
+  } 
+  
   var moviesList = "https://api.themoviedb.org/3/discover/movie?api_key=eea5a34dde91516aaed29972492b8943&language=en-US&with_genres=" + movieSelection;
-
+  console.log(moviesList);
   fetch (moviesList, {
   })
     .then(function (response){
@@ -127,45 +100,38 @@ function movieCall(){
     })
     .then(function (data){
       console.log(data);
-
     var randomNum = Math.floor(Math.random() * 10);
     console.log(randomNum);
-
     var moviesSelected = {
       titles: data.results[randomNum].title,
       overview: data.results[randomNum].overview,
       poster: data.results[randomNum].poster_path
   }  
-
+  section.empty();
+  section.append(`<img src="https://image.tmdb.org/t/p/original/${moviesSelected.poster}" alt="movie poster" style="height:400px">`)
+  section.append("<br>")
+  section.append('<span style="font-weight:bold;font-size:30px">' + moviesSelected.titles + '</span>')
+  section.append("<br>")
+  section.append(moviesSelected.overview);
+  
   console.log(moviesSelected.titles); // append to html class
   console.log(moviesSelected.overview); // append to html class
   console.log(moviesSelected.poster); // append to html class
-
-  //link to poster
-  // var imageLink = "image.tmdb.org/t/p/original/" + poster;
+  // var imageLink = 
   // console.log(imageLink);
-
-
   // Save results to local storage
   var movieInfo = localStorage.getItem("movieInfo");
   if (movieInfo === null){
-
   // If no movieInfo, create a new array  
     movieInfo = [];
-
   // Parse movieInfo  
   } else {
     movieInfo = JSON.parse(movieInfo);
   }
-
   //Append moviesSelected object to movieInfo
   movieInfo.push(moviesSelected);
-
   // Stringify movieInfo and store into local storage
   var newMovie = JSON.stringify(movieInfo);
   localStorage.setItem("movieInfo", newMovie);
-
-
   });
 }
-
