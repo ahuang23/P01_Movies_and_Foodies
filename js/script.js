@@ -4,19 +4,26 @@ var section = $(".section");
 var section2 = $(".section2");
 var movieSelection;
 var input;
+var price;
+
 var selectedNew = $("#select1").on("change", function(){
   input = this.value;
 });
+var selecedPrice = $("#select2").on("change", function(){
+  price = this.value;
+  console.log(price);
+});
+
 submit.click(function(){
-    movieCall();
-    yelpCall();
+  yelpCall();  
+  movieCall();
  })
 reset.click(function(){
   location.reload();
 })
 
-
 function yelpCall(){
+ 
 var food = {
   "Action" : "fast food",
   "Comedy" : ["sandwich","pizza", "ice cream"],
@@ -26,10 +33,13 @@ var food = {
 }
 var cuisine;
 var rand = Math.floor(Math.random() * 2);
-var randRest = Math.floor(Math.random() * 10);
+var randRest = Math.floor(Math.random() * 5);
+
+if(!price){
+  price = 1;
+}
 
 for (var prop in food){
-  
  if ((prop === input) && (prop === "Mystery")){
     cuisine = food.Mystery[rand];
  }
@@ -39,13 +49,11 @@ for (var prop in food){
   else if (prop === input){
     cuisine = food[prop];
   }
-  
 }
 
-var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term="+cuisine+"&latitude=33.787914&longitude=-117.853104&limit=10";
-// var yelpURL = 'http://www.whateverorigin.org/get?url=' + encodeURIComponent('https://api.yelp.com/v3/businesses/search?term="+cuisine+"&latitude=33.787914&longitude=-117.853104');
-
-  fetch(yelpURL, {
+var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term="+cuisine+"&price="+price+"&latitude=33.787914&longitude=-117.853104&limit=10";
+ 
+fetch(yelpURL, {
     method: 'GET',
     headers: new Headers({'Authorization':'Bearer Kgw9XiDAFyVaMDW0G_hv5b5VJqWZ1KMM4ARW4zQBbEd_hDVtGZqeRpuRGF9IXhwTJbC2IzabNk1lDpqhQtwe6XtjDsLfmvgJTUiDpucTb3-cUkcIgIWXGGUqHWL8YnYx', 
   'Content-Type':'application/json'})
@@ -57,6 +65,7 @@ var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/busin
       console.log(data);
       var pick = data.businesses[randRest];
       var restuarant = pick.name;
+      var imgURL = pick.image_url;
       var address = {
         "address1" : pick.location.address1,
         "address2" : pick.location.address2,
@@ -65,12 +74,9 @@ var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/busin
         "zip" : pick.location.zip_code,
         "phone" : pick.phone
       };
-      var imgURL = pick.image_url;
-      console.log(address);
-      console.log(imgURL); 
+    
 
       section2.empty();
-      
       var pickImg = new Image();
       pickImg.src = imgURL
       pickImg.height = 400;
@@ -87,14 +93,12 @@ var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/busin
       section2.append(address.address2);
       section2.append("<br>")
       }
-      
       section2.append(address.city+", "+address.state+" "+address.zip);
       section2.append("<br>")
       section2.append(phoneFormat);
       
     });
 }
-
 
 function movieCall(){
   if (input === "Movie Genre") {
