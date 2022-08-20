@@ -50,7 +50,7 @@
        padding:5em;
        color: #6fcbd5;
        justify-content: center;
-      
+   
       
     }
 
@@ -74,6 +74,7 @@
     text-align: center;
     display:inline-block; 
     margin:5px;
+    background-color: #CACFD1;
     
    
 } 
