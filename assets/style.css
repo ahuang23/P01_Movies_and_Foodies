@@ -15,6 +15,7 @@
       border: 3px solid black;
       margin: 0em;                                   ;
       padding:2em;
+      
 }
 .flex-container {
     
@@ -31,6 +32,7 @@
  
     padding:20px;
 }
+
 .section2 {
     flex:50%;
     text-align: center;
@@ -47,19 +49,18 @@
        flex: 50%;
        margin-top:10em;
        padding:5em;
-       
+       color: #6fcbd5;
     
     }
+    
 
   
 
 
   .button {
     flex:50%;
- 
-    
     text-align: center;
-   display:inline-block; 
+    display:inline-block; 
     
    
     
