@@ -17,6 +17,7 @@
 - Movies API - The Movie Database
 - Foodies API - Yelp
 - CSS Framework - Bulma IO
+- JQuery
 
 ### Sample
 ![gif of app](./assets/images/screen.gif)
