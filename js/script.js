@@ -1,5 +1,6 @@
 var submit = $(".submit");
 var reset = $(".reset");
+var storage = $(".history");
 var section = $(".section");
 var section2 = $(".section2");
 var movieSelection;
@@ -20,6 +21,9 @@ submit.click(function(){
  })
 reset.click(function(){
   location.reload();
+})
+storage.click(function(){
+  location.replace('./storage.html');
 })
 
 function yelpCall(){
@@ -108,7 +112,7 @@ fetch(yelpURL, {
       }
       //Append restuarant object to foodInfo
       foodInfo.push(restuarant);
-      // Stringify food38Info and store into local storage
+      // Stringify foodInfo and store into local storage
       var newFood = JSON.stringify(foodInfo);
       localStorage.setItem("foodInfo", newFood);
       
