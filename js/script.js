@@ -1,3 +1,4 @@
+// Global Variables
 var submit = $(".submit");
 var reset = $(".reset");
 var storage = $(".history");
@@ -9,6 +10,7 @@ var movieSelection;
 var input;
 var price;
 
+// Reads user inputs from index
 var selectedNew = $("#select1").on("change", function(){
   input = this.value;
 });
@@ -17,18 +19,25 @@ var selecedPrice = $("#select2").on("change", function(){
   console.log(price);
 });
 
+// Buttons
+
+// Submit
 submit.click(function(){
   yelpCall();  
   movieCall();
  });
 
+// Close Modal
 closeit.click(function(){
   $(modal).removeClass("is-active");
 }); 
 
+// Reset
 reset.click(function(){
   location.reload();
 })
+
+// History
 storage.click(function(){
   location.replace('./storage.html');
 })
@@ -132,7 +141,11 @@ fetch(yelpURL, {
     });
 }
 
+
+// Movie Call Function
 function movieCall(){
+
+// Match genres to id  
   if (input == undefined) {
     $(modal).addClass("is-active");
     return;
@@ -161,14 +174,14 @@ function movieCall(){
       return response.json();
     })
     .then(function (data){
-      // console.log(data);
     var randomNum = Math.floor(Math.random() * 10);
-    // console.log(randomNum);
     var moviesSelected = {
       titles: data.results[randomNum].title,
       overview: data.results[randomNum].overview,
       poster: data.results[randomNum].poster_path
   }  
+
+  // Append returned data to page
   section.empty();
   section.append(`<img src="https://image.tmdb.org/t/p/original/${moviesSelected.poster}" alt="movie poster" style="height:400px">`)
   section.append("<br>")
