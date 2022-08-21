@@ -1,32 +1,46 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Highscores</title>
-
-    <link rel="stylesheet" href="./assets/styles.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movies & Foodies</title>
+    <link rel="icon" type="image/x-icon" href="./assets/images/mf_fav.png">
+    <link rel="stylesheet" href="./assets/style.css">
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
   </head>
-
   <body>
-    <div class="wrapper">
-      <h1>Movies</h1>
-      <ol id="movieInfo"></ol>
-
-      <a href="index.html"><button>Submit</button></a>
-      <button id="Reset">Reset</button>
+   
+    <header class="header"> 
+      <img src="./assets/images/mf_logo.png" alt="movies & foodies logo">
       
-    </div>
 
-    <div class="wrapper">
-      <h1>Movies</h1>
-      <ol id="movieInfo"></ol>
-
-      <a href="index.html"></a>
-      <button class="button is-medium is-rounded history" style="background-color:#CACFD1">History</button>
-      
+    </header>
+    <section class="flex-container">
+      <div class="section">
+        <h1>History</h1>
+      </div>
+      <span class="icon is-left">
+        <i class="fas fa-movie"></i>
+      </span>
     </div>
-    <script src="./js/storage.js"></script>
-    <script src="./js/script.js"></script>
-  </body>
+  </div>
+    <div class="section2"></div>
+      <span class="icon is-left">
+        <i class="fas fa-food"></i>
+      </span>
+    </div>
+  </div>
+  </section>
+ <section class="flex-container2">
+  <button class="button is-medium is-rounded  home" >Home</button> 
+  <button class="button is-medium is-rounded  clear" >Clear</button>
+</section>
+<footer class="flex-container3">
+  
+</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./js/storage.js"></script>
+</body>
 </html>

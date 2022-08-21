@@ -1,5 +1,6 @@
 var submit = $(".submit");
 var reset = $(".reset");
+var storage = $(".history");
 var section = $(".section");
 var section2 = $(".section2");
 var modal = $("#errorModal");
@@ -28,6 +29,9 @@ closeit.click(function(){
 
 reset.click(function(){
   location.reload();
+})
+storage.click(function(){
+  location.replace('./storage.html');
 })
 
 function yelpCall(){
@@ -105,6 +109,21 @@ fetch(yelpURL, {
       section2.append(address.city+", "+address.state+" "+address.zip);
       section2.append("<br>")
       section2.append(phoneFormat);
+
+      var foodInfo = localStorage.getItem("foodInfo");
+      if (foodInfo === null){
+      // If no foodInfo, create a new array  
+        foodInfo = [];
+      // Parse foodInfo  
+      } else {
+        foodInfo = JSON.parse(foodInfo);
+      }
+      //Append restuarant object to foodInfo
+      foodInfo.push(restuarant);
+      // Stringify foodInfo and store into local storage
+      var newFood = JSON.stringify(foodInfo);
+      localStorage.setItem("foodInfo", newFood);
+      
       
     });
 }
@@ -152,12 +171,7 @@ function movieCall(){
   section.append("<br>")
   section.append(moviesSelected.overview);
   
-  // console.log(moviesSelected.titles); // append to html class
-  // console.log(moviesSelected.overview); // append to html class
-  // console.log(moviesSelected.poster); // append to html class
-  // var imageLink = 
-  // console.log(imageLink);
-  // Save results to local storage
+  // Save movie results to local storage
   var movieInfo = localStorage.getItem("movieInfo");
   if (movieInfo === null){
   // If no movieInfo, create a new array  
@@ -167,7 +181,7 @@ function movieCall(){
     movieInfo = JSON.parse(movieInfo);
   }
   //Append moviesSelected object to movieInfo
-  movieInfo.push(moviesSelected);
+  movieInfo.push(moviesSelected.titles);
   // Stringify movieInfo and store into local storage
   var newMovie = JSON.stringify(movieInfo);
   localStorage.setItem("movieInfo", newMovie);
