@@ -66,13 +66,12 @@ for (var prop in food){
   }
 }
 
-// https://cors-anywhere.herokuapp.com/
-var yelpURL = "https://api.yelp.com/v3/businesses/search?term="+cuisine+"&price="+price+"&latitude=33.787914&longitude=-117.853104&limit=10";
+var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term="+cuisine+"&price="+price+"&latitude=33.787914&longitude=-117.853104&limit=10";
  
 fetch(yelpURL, {
     method: 'GET',
     headers: new Headers({'Authorization':'Bearer Kgw9XiDAFyVaMDW0G_hv5b5VJqWZ1KMM4ARW4zQBbEd_hDVtGZqeRpuRGF9IXhwTJbC2IzabNk1lDpqhQtwe6XtjDsLfmvgJTUiDpucTb3-cUkcIgIWXGGUqHWL8YnYx', 
-  'Content-Type':'application/json'},{'Access-Control-Allow-Origin': 'https://ahuang23.github.io/P01_Movies_and_Foodies/'})
+  'Content-Type':'application/json'})
   
   })
     .then(function (response) {
