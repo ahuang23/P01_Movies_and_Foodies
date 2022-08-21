@@ -58,8 +58,8 @@ for (var prop in food){
     cuisine = food[prop];
   }
 }
-// https://cors-anywhere.herokuapp.com/
-var yelpURL = "https://api.yelp.com/v3/businesses/search?term="+cuisine+"&price="+price+"&latitude=33.787914&longitude=-117.853104&limit=10";
+
+var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term="+cuisine+"&price="+price+"&latitude=33.787914&longitude=-117.853104&limit=10";
  
 fetch(yelpURL, {
     method: 'GET',
