@@ -17,6 +17,8 @@ var selecedPrice = $("#select2").on("change", function(){
   console.log(price);
 });
 
+
+// Buttons
 submit.click(function(){
   inputCatch();
   yelpCall();  
@@ -128,7 +130,10 @@ fetch(yelpURL, {
     });
 }
 
+// Call Movies
 function movieCall(){
+
+// Match Movie Genres to IDs from API  
   if (input === "Movie Genre") {
     return;
   }
@@ -148,6 +153,7 @@ function movieCall(){
   movieSelection = 10749;
   } 
   
+// Call API
   var moviesList = "https://api.themoviedb.org/3/discover/movie?api_key=eea5a34dde91516aaed29972492b8943&language=en-US&with_genres=" + movieSelection;
   // console.log(moviesList);
   fetch (moviesList, {
