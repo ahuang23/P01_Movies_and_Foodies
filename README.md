@@ -19,6 +19,7 @@
 - CSS Framework - Bulma IO
 
 ### Sample
+![gif of app](./assets/images/screen.gif)
 
 ### Links
 [Movies & Foodies](https://ahuang23.github.io/P01_Movies_and_Foodies/)
