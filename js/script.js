@@ -64,7 +64,7 @@ var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/busin
 fetch(yelpURL, {
     method: 'GET',
     headers: new Headers({'Authorization':'Bearer Kgw9XiDAFyVaMDW0G_hv5b5VJqWZ1KMM4ARW4zQBbEd_hDVtGZqeRpuRGF9IXhwTJbC2IzabNk1lDpqhQtwe6XtjDsLfmvgJTUiDpucTb3-cUkcIgIWXGGUqHWL8YnYx', 
-  'Content-Type':'application/json'}, 'Access-Control-Allow-Origin': 'https://ahuang23.github.io/P01_Movies_and_Foodies/'})
+  'Content-Type':'application/json'})
   })
     .then(function (response) {
       return response.json();
