@@ -17,7 +17,6 @@ var selecedPrice = $("#select2").on("change", function(){
 });
 
 submit.click(function(){
-  inputCatch();
   yelpCall();  
   movieCall();
  });
@@ -31,6 +30,10 @@ reset.click(function(){
 })
 
 function yelpCall(){
+  if (input == undefined) {
+    $(modal).addClass("is-active");
+    return;
+  }
  
 var food = {
   "Action" : "fast food",
@@ -110,7 +113,8 @@ fetch(yelpURL, {
 }
 
 function movieCall(){
-  if (input === "Movie Genre") {
+  if (input == undefined) {
+    $(modal).addClass("is-active");
     return;
   }
   else if (input === "Action") {
@@ -173,10 +177,4 @@ function movieCall(){
   localStorage.setItem("movieInfo", newMovie);
   });
 }
-
-function inputCatch(){
-  if (input == undefined){
-    $(modal).addClass("is-active");
-  }
-  return;
-}
+  
