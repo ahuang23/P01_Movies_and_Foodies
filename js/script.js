@@ -17,10 +17,7 @@ var selecedPrice = $("#select2").on("change", function(){
   console.log(price);
 });
 
-
-// Buttons
 submit.click(function(){
-  inputCatch();
   yelpCall();  
   movieCall();
  });
@@ -37,6 +34,10 @@ storage.click(function(){
 })
 
 function yelpCall(){
+  if (input == undefined) {
+    $(modal).addClass("is-active");
+    return;
+  }
  
 var food = {
   "Action" : "fast food",
@@ -71,6 +72,7 @@ fetch(yelpURL, {
     method: 'GET',
     headers: new Headers({'Authorization':'Bearer Kgw9XiDAFyVaMDW0G_hv5b5VJqWZ1KMM4ARW4zQBbEd_hDVtGZqeRpuRGF9IXhwTJbC2IzabNk1lDpqhQtwe6XtjDsLfmvgJTUiDpucTb3-cUkcIgIWXGGUqHWL8YnYx', 
   'Content-Type':'application/json'})
+  
   })
     .then(function (response) {
       return response.json();
@@ -130,11 +132,9 @@ fetch(yelpURL, {
     });
 }
 
-// Call Movies
 function movieCall(){
-
-// Match Movie Genres to IDs from API  
-  if (input === "Movie Genre") {
+  if (input == undefined) {
+    $(modal).addClass("is-active");
     return;
   }
   else if (input === "Action") {
@@ -153,7 +153,6 @@ function movieCall(){
   movieSelection = 10749;
   } 
   
-// Call API
   var moviesList = "https://api.themoviedb.org/3/discover/movie?api_key=eea5a34dde91516aaed29972492b8943&language=en-US&with_genres=" + movieSelection;
   // console.log(moviesList);
   fetch (moviesList, {
