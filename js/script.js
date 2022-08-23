@@ -47,7 +47,8 @@ function yelpCall(){
     $(modal).addClass("is-active");
     return;
   }
- 
+
+//  pairings based on team ideas. comedy and mystery seemed like the most appropriate to havve multiple options   
 var food = {
   "Action" : "fast food",
   "Comedy" : ["sandwich","pizza", "ice cream"],
@@ -59,12 +60,16 @@ var cuisine;
 var rand = Math.floor(Math.random() * 2);
 var randRest = Math.floor(Math.random() * 5);
 
+// checking for price input 
 if(!price){
   price = 1;
 }
 
+// iterate over food obj 
+// conditions for mystery and comedy 
 for (var prop in food){
  if ((prop === input) && (prop === "Mystery")){
+    // gen random num size of arry inside of object 
     cuisine = food.Mystery[rand];
  }
  else if ((prop === input) && (prop === "Comedy")){
@@ -75,8 +80,10 @@ for (var prop in food){
   }
 }
 
+// cors anywhere needed because yelp does not support cors but uses JSONP
 var yelpURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term="+cuisine+"&price="+price+"&latitude=33.787914&longitude=-117.853104&limit=10";
- 
+
+// required the use of adding the https header request 
 fetch(yelpURL, {
     method: 'GET',
     headers: new Headers({'Authorization':'Bearer Kgw9XiDAFyVaMDW0G_hv5b5VJqWZ1KMM4ARW4zQBbEd_hDVtGZqeRpuRGF9IXhwTJbC2IzabNk1lDpqhQtwe6XtjDsLfmvgJTUiDpucTb3-cUkcIgIWXGGUqHWL8YnYx', 
@@ -88,6 +95,7 @@ fetch(yelpURL, {
     })
     .then(function (data) {
       console.log(data);
+      // random option out of returned results 
       var pick = data.businesses[randRest];
       var restuarant = pick.name;
       var imgURL = pick.image_url;
@@ -109,6 +117,7 @@ fetch(yelpURL, {
 
       var phoneFormat = address.phone.slice(-10);
       
+      // write food side to page 
       section2.append(pickImg);
       section2.append("<br>")
       section2.append('<span style="font-weight:bold;font-size:30px">' + restuarant + '</span>')
