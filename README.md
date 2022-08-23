@@ -22,5 +22,9 @@
 ### Sample
 ![gif of app](./assets/images/screen.gif)
 
+### Instructions
+-Open https://cors-anywhere.herokuapp.com/corsdemo and click "Request temporary access to the server"
+-open link to deplpoyed project
+
 ### Links
 [Movies & Foodies](https://ahuang23.github.io/P01_Movies_and_Foodies/)
